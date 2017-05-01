@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "JHPhotoManager.h"
+#import "JHPhotoAblumCollecitonView.h"
 
 @interface ViewController ()
 
@@ -16,13 +18,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    __weak typeof(self)weakSelf = self;
+    [JHPhotoManager getAllAblumWithCallbackBlock:^(NSArray<JHPhotoCollection *> *jhPhotoCollectionArray, NSError *error) {
+        JHPhotoAblumCollecitonView *view = [[JHPhotoAblumCollecitonView alloc]initWithFrame:[UIScreen mainScreen].bounds andPhotoCollection:jhPhotoCollectionArray];
+        __weak typeof(weakSelf)strongSelf = weakSelf;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [strongSelf.view addSubview:view];
+        });
+    }];
+    
+//    JHPhotoAblumCollecitonView *view = [[JHPhotoAblumCollecitonView alloc]initWithFrame:[UIScreen mainScreen].bounds andPhotoCollection:nil];
+//    [self.view addSubview:view];
+    
 }
 
 

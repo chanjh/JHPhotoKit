@@ -12,4 +12,8 @@
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
 
+#import "JHPHAsset.h"
+#import "JHPhotoCollection.h"
+#import "JHPhotoManager.h"
+
 #endif /* JHPhotoHeader_h */

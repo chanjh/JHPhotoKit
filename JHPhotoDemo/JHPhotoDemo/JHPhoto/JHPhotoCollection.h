@@ -10,7 +10,18 @@
 
 @interface JHPhotoCollection : NSObject
 
-@property (nonatomic, strong) NSString *collectionName;
-@property (nonatomic, strong) PHCollection *collection;
+/**
+ * PHCollection 有两个子类
+ * PHAssetCollction:相册
+ * PHCollectionList:文件夹
+ */
+
+- (instancetype)initWithPHCollection:(PHAssetCollection *)collection;
++ (instancetype)collectionWithPHCollection:(PHAssetCollection *)collection;
+
+@property (nonatomic, strong, readonly) NSString *collectionName;
+@property (nonatomic, strong, readonly) PHAssetCollection *collection;
+@property (nonatomic, strong, readonly) UIImage *thumbImage;
+@property (nonatomic, assign, readonly) NSInteger countOfAsset;
 
 @end

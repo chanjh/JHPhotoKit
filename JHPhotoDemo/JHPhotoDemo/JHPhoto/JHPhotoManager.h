@@ -6,12 +6,10 @@
 //  Copyright © 2017年 陈嘉豪. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <Photos/Photos.h>
+#import "JHPhotoHeader.h"
 
-#import "JHPhotoCollection.h"
-#import "JHPHAsset.h"
-
+@class JHPHAsset;
+@class JHPhotoCollection;
 /**
  * 查找结果的回调
  */
@@ -26,7 +24,7 @@ typedef void(^JHPhotoManagerCallbackBlock)(NSArray <JHPhotoCollection *> *jhPhot
 /**
  * 判断获取相册的权限
  */
-+ (BOOL)havePhotoAblumAuthoority;
++ (BOOL)havePhotoAblumAuthority;
 
 /**
  * PhotoKit 有两大资源对象
@@ -43,11 +41,10 @@ typedef void(^JHPhotoManagerCallbackBlock)(NSArray <JHPhotoCollection *> *jhPhot
 + (void)getAllMediaWithTypes:(NSArray *)typesArray withCallbackBlock:(JHPhotoManagerCallbackBlock)block;
 
 // 获取某个相册下的所有类型的媒体
-+ (NSArray <JHPHAsset *>*)getPhotosFromCollction:(PHCollection *)collection;
++ (NSArray <JHPHAsset *> *)getPhotosFromCollction:(PHAssetCollection *)collection;
 
 // 获取某个相册下某个（些）类型的所有媒体
 + (void)getMediaWithTypes:(NSArray*)typesArray fromCollction:(PHCollection *)collection;
-
 
 
 @property (nonatomic, strong) PHFetchResult *fetchResult;
