@@ -6,56 +6,52 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="JHAblumCollectionViewCellID" id="gTV-IL-0wX" customClass="JHAblumCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="218" height="267"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="JHPhotoCollectionViewCellID" reuseIdentifier="JHPhotoCollectionViewCellID" id="gTV-IL-0wX" customClass="JHPhotoCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="218" height="246"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="218" height="267"/>
+                <rect key="frame" x="0.0" y="0.0" width="218" height="246"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jP0-7t-mgZ">
-                        <rect key="frame" x="30" y="5" width="158" height="158"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="jP0-7t-mgZ" secondAttribute="height" multiplier="1:1" id="lgG-yK-XN6"/>
-                        </constraints>
+                        <rect key="frame" x="2" y="2" width="214" height="244"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAC-SC-2Jq">
-                        <rect key="frame" x="30" y="168" width="42" height="21"/>
+                        <rect key="frame" x="88" y="112.5" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FO-Oi-LzL">
-                        <rect key="frame" x="30" y="194" width="42" height="21"/>
+                        <rect key="frame" x="88" y="138.5" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="jP0-7t-mgZ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="0dB-PV-q4D"/>
+                <constraint firstItem="jP0-7t-mgZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="5An-J4-sCF"/>
                 <constraint firstItem="3FO-Oi-LzL" firstAttribute="top" secondItem="WAC-SC-2Jq" secondAttribute="bottom" constant="5" id="AMe-ZR-yBP"/>
-                <constraint firstItem="WAC-SC-2Jq" firstAttribute="top" secondItem="jP0-7t-mgZ" secondAttribute="bottom" constant="5" id="Bfi-Nz-k7r"/>
-                <constraint firstAttribute="trailing" secondItem="jP0-7t-mgZ" secondAttribute="trailing" constant="30" id="II3-2P-XWE"/>
-                <constraint firstItem="jP0-7t-mgZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="WDJ-JQ-LsD"/>
-                <constraint firstItem="jP0-7t-mgZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="Zsr-vd-dbG"/>
-                <constraint firstItem="WAC-SC-2Jq" firstAttribute="leading" secondItem="jP0-7t-mgZ" secondAttribute="leading" id="qDh-42-vYE"/>
-                <constraint firstItem="3FO-Oi-LzL" firstAttribute="leading" secondItem="WAC-SC-2Jq" secondAttribute="leading" id="ytW-9b-8z4"/>
+                <constraint firstItem="3FO-Oi-LzL" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="II7-SA-AVW"/>
+                <constraint firstAttribute="bottom" secondItem="jP0-7t-mgZ" secondAttribute="bottom" id="JeM-Ha-Cin"/>
+                <constraint firstItem="WAC-SC-2Jq" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="LxX-8J-fDZ"/>
+                <constraint firstItem="WAC-SC-2Jq" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="l2N-E3-Quc"/>
+                <constraint firstItem="jP0-7t-mgZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="w19-gt-mgK"/>
+                <constraint firstAttribute="trailing" secondItem="jP0-7t-mgZ" secondAttribute="trailing" constant="2" id="yJJ-5r-9O8"/>
             </constraints>
-            <size key="customSize" width="218" height="267"/>
+            <size key="customSize" width="218" height="246"/>
             <connections>
                 <outlet property="ablumImageView" destination="jP0-7t-mgZ" id="ypt-Lv-Uru"/>
                 <outlet property="ablumNameLabel" destination="WAC-SC-2Jq" id="lPx-a5-Zri"/>
                 <outlet property="numLabel" destination="3FO-Oi-LzL" id="dOI-0e-NEG"/>
             </connections>
-            <point key="canvasLocation" x="29" y="162.5"/>
+            <point key="canvasLocation" x="29" y="152"/>
         </collectionViewCell>
     </objects>
 </document>

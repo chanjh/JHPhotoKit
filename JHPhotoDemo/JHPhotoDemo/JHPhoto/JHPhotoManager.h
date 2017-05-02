@@ -44,7 +44,7 @@ typedef void(^JHPhotoManagerCallbackBlock)(NSArray <JHPhotoCollection *> *jhPhot
 + (NSArray <JHPHAsset *> *)getPhotosFromCollction:(PHAssetCollection *)collection;
 
 // 获取某个相册下某个（些）类型的所有媒体
-+ (void)getMediaWithTypes:(NSArray*)typesArray fromCollction:(PHCollection *)collection;
++ (NSArray <JHPHAsset *>*)getMediaWithTypes:(NSArray*)typesArray fromCollction:(PHCollection *)collection;
 
 
 @property (nonatomic, strong) PHFetchResult *fetchResult;

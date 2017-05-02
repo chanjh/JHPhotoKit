@@ -35,6 +35,8 @@ typedef NS_ENUM(NSUInteger, JHPhotoAssetType) {
 - (instancetype)initWithPHAsset:(PHAsset *)asset;
 + (instancetype)assetWithPHAsset:(PHAsset *)asset;
 
+- (void)getThumbImageWithBlock:(void(^)(UIImage *image))block;
+
 @property (nonatomic, strong, readonly) PHAsset *asset;
 @property (nonatomic, assign, readonly) JHPhotoAssetType assetType;
 

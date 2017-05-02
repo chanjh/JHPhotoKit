@@ -19,6 +19,8 @@
 - (instancetype)initWithPHCollection:(PHAssetCollection *)collection;
 + (instancetype)collectionWithPHCollection:(PHAssetCollection *)collection;
 
+- (void)getThumbImageWithBlock:(void(^)(UIImage *image))block;
+
 @property (nonatomic, strong, readonly) NSString *collectionName;
 @property (nonatomic, strong, readonly) PHAssetCollection *collection;
 @property (nonatomic, strong, readonly) UIImage *thumbImage;

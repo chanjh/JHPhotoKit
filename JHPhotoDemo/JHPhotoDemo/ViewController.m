@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "JHPhotoManager.h"
 #import "JHPhotoAblumCollecitonView.h"
+#import "JHPhotoPickerColloctionView.h"
 
 @interface ViewController ()
 
@@ -19,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    // 相册 collectionView
     __weak typeof(self)weakSelf = self;
     [JHPhotoManager getAllAblumWithCallbackBlock:^(NSArray<JHPhotoCollection *> *jhPhotoCollectionArray, NSError *error) {
         JHPhotoAblumCollecitonView *view = [[JHPhotoAblumCollecitonView alloc]initWithFrame:[UIScreen mainScreen].bounds andPhotoCollection:jhPhotoCollectionArray];
@@ -28,9 +31,10 @@
         });
     }];
     
-//    JHPhotoAblumCollecitonView *view = [[JHPhotoAblumCollecitonView alloc]initWithFrame:[UIScreen mainScreen].bounds andPhotoCollection:nil];
+    // 图片 collectionView
+//    NSArray *array = [JHPhotoManager getMediaWithTypes:nil fromCollction:nil];
+//    JHPhotoPickerColloctionView *view = [[JHPhotoPickerColloctionView alloc]initWithFrame:[UIScreen mainScreen].bounds andPhotoAssets:array];
 //    [self.view addSubview:view];
-    
 }
 
 

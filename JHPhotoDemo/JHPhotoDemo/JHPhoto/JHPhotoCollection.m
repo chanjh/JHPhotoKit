@@ -30,7 +30,31 @@
     JHPhotoCollection *photoCollection = [[JHPhotoCollection alloc]initWithPHCollection:collection];
     return photoCollection;
 }
+- (void)getThumbImageWithBlock:(void(^)(UIImage *image))block{
+    
+    PHFetchOptions *options = [[PHFetchOptions alloc] init];
+    [options setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]]];
+    PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:self.collection options:options];
+    if(!result.count){
+        if(block){
+            block(nil);
+        }
+        return;
+    }
+    
+    PHAsset *asset = [result objectAtIndex:0];
+    CGSize targetSize = CGSizeMake(150, 150);
+    PHImageRequestOptions *requestOptions = [[PHImageRequestOptions alloc] init];
+    requestOptions.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+    requestOptions.networkAccessAllowed = YES;
+    [[PHImageManager defaultManager]requestImageForAsset:asset targetSize:targetSize contentMode:PHImageContentModeAspectFill options:requestOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        if(block){
+            block(result);
+        }
+    }];
+}
 
+# pragma mark - Getter and setter
 - (NSString *)collectionName{
     if(!_collectionName){
         _collectionName = self.collection.localizedTitle;
@@ -40,7 +64,6 @@
 
 - (UIImage *)thumbImage{
     if(!_thumbImage){
-        
     }
     return _thumbImage;
 }

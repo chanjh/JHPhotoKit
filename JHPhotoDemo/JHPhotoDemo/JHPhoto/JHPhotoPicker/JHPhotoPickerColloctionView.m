@@ -1,40 +1,41 @@
 //
-//  JHPhotoAblumCollecitonView.m
+//  JHPhotoPickerColloctionView.m
 //  JHPhotoDemo
 //
-//  Created by 陈嘉豪 on 2017/5/1.
+//  Created by 陈嘉豪 on 2017/5/2.
 //  Copyright © 2017年 陈嘉豪. All rights reserved.
 //
 
-#import "JHPhotoAblumCollecitonView.h"
+#import "JHPhotoPickerColloctionView.h"
 #import "JHPhotoCollectionViewCell.h"
-#define DeviceSize [UIScreen mainScreen].bounds.size
 
-@interface JHPhotoAblumCollecitonView()<UICollectionViewDelegate,
+@interface JHPhotoPickerColloctionView()<UICollectionViewDelegate,
                                         UICollectionViewDataSource,
                                         UICollectionViewDelegateFlowLayout>
 
+@property (nonatomic, strong) NSArray <JHPHAsset *> *assetList;
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) NSArray <JHPhotoCollection *> *photoCollectionList;
 
 @end
 
-@implementation JHPhotoAblumCollecitonView
+@implementation JHPhotoPickerColloctionView
 
-- (instancetype)initWithFrame:(CGRect)frame andPhotoCollection:(NSArray <JHPhotoCollection *> *)collectionList{
+- (instancetype)initWithFrame:(CGRect)frame andPhotoAssets:(NSArray<JHPHAsset *> *)assetList{
     if(self = [super initWithFrame:frame]){
-        self.photoCollectionList = collectionList;
+        self.assetList = assetList;
         [self setFrame:frame];
         [self collectionView];
     }
     return self;
 }
+
 # pragma mark - Getter and setter
 - (UICollectionView *)collectionView{
     if(!_collectionView){
+        // 设置流水布局
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
-        CGFloat cellW = (screenSize.width - 2*3)/2;
+        CGFloat cellW = (screenSize.width - 2*3)/4;
         // 定义大小
         layout.itemSize = CGSizeMake(cellW, cellW);
         // 设置最小行间距(上下的间距)
@@ -55,13 +56,16 @@
 # pragma mark - UICollectionDelegate UICollectionDataSource
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     JHPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"JHPhotoCollectionViewCellID" forIndexPath:indexPath];
-    cell.collection = self.photoCollectionList[indexPath.row];
+    cell.photoAsset = self.assetList[indexPath.row];
     [cell setCellView];
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.photoCollectionList.count;
+    return self.assetList.count;
+}
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"Row:%ld -- Section:%ld", (long)indexPath.row, (long)indexPath.section);
 }
 
 

@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0D9CFEED1EB6FC8200BB8F3D /* JHPhotoAblumCollecitonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CFEEC1EB6FC8200BB8F3D /* JHPhotoAblumCollecitonView.m */; };
-		0D9CFEF11EB7550000BB8F3D /* JHAblumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CFEEF1EB7550000BB8F3D /* JHAblumCollectionViewCell.m */; };
-		0D9CFEF21EB7550000BB8F3D /* JHAblumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D9CFEF01EB7550000BB8F3D /* JHAblumCollectionViewCell.xib */; };
+		0D9CFEF11EB7550000BB8F3D /* JHPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CFEEF1EB7550000BB8F3D /* JHPhotoCollectionViewCell.m */; };
+		0D9CFEF21EB7550000BB8F3D /* JHPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D9CFEF01EB7550000BB8F3D /* JHPhotoCollectionViewCell.xib */; };
+		0D9CFEF51EB82A3700BB8F3D /* JHPhotoPickerColloctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CFEF41EB82A3700BB8F3D /* JHPhotoPickerColloctionView.m */; };
 		0DFFE8251EB61CF7009A5446 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFE8241EB61CF7009A5446 /* main.m */; };
 		0DFFE8281EB61CF7009A5446 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFE8271EB61CF7009A5446 /* AppDelegate.m */; };
 		0DFFE82B1EB61CF7009A5446 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFE82A1EB61CF7009A5446 /* ViewController.m */; };
@@ -44,9 +45,11 @@
 /* Begin PBXFileReference section */
 		0D9CFEEB1EB6FC8200BB8F3D /* JHPhotoAblumCollecitonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoAblumCollecitonView.h; sourceTree = "<group>"; };
 		0D9CFEEC1EB6FC8200BB8F3D /* JHPhotoAblumCollecitonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoAblumCollecitonView.m; sourceTree = "<group>"; };
-		0D9CFEEE1EB7550000BB8F3D /* JHAblumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHAblumCollectionViewCell.h; sourceTree = "<group>"; };
-		0D9CFEEF1EB7550000BB8F3D /* JHAblumCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHAblumCollectionViewCell.m; sourceTree = "<group>"; };
-		0D9CFEF01EB7550000BB8F3D /* JHAblumCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHAblumCollectionViewCell.xib; sourceTree = "<group>"; };
+		0D9CFEEE1EB7550000BB8F3D /* JHPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		0D9CFEEF1EB7550000BB8F3D /* JHPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		0D9CFEF01EB7550000BB8F3D /* JHPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		0D9CFEF31EB82A3700BB8F3D /* JHPhotoPickerColloctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoPickerColloctionView.h; sourceTree = "<group>"; };
+		0D9CFEF41EB82A3700BB8F3D /* JHPhotoPickerColloctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoPickerColloctionView.m; sourceTree = "<group>"; };
 		0DFFE8201EB61CF7009A5446 /* JHPhotoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JHPhotoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DFFE8241EB61CF7009A5446 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0DFFE8261EB61CF7009A5446 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -103,9 +106,11 @@
 			children = (
 				0D9CFEEB1EB6FC8200BB8F3D /* JHPhotoAblumCollecitonView.h */,
 				0D9CFEEC1EB6FC8200BB8F3D /* JHPhotoAblumCollecitonView.m */,
-				0D9CFEEE1EB7550000BB8F3D /* JHAblumCollectionViewCell.h */,
-				0D9CFEEF1EB7550000BB8F3D /* JHAblumCollectionViewCell.m */,
-				0D9CFEF01EB7550000BB8F3D /* JHAblumCollectionViewCell.xib */,
+				0D9CFEEE1EB7550000BB8F3D /* JHPhotoCollectionViewCell.h */,
+				0D9CFEEF1EB7550000BB8F3D /* JHPhotoCollectionViewCell.m */,
+				0D9CFEF01EB7550000BB8F3D /* JHPhotoCollectionViewCell.xib */,
+				0D9CFEF31EB82A3700BB8F3D /* JHPhotoPickerColloctionView.h */,
+				0D9CFEF41EB82A3700BB8F3D /* JHPhotoPickerColloctionView.m */,
 			);
 			path = JHPhotoPicker;
 			sourceTree = "<group>";
@@ -298,7 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D9CFEF21EB7550000BB8F3D /* JHAblumCollectionViewCell.xib in Resources */,
+				0D9CFEF21EB7550000BB8F3D /* JHPhotoCollectionViewCell.xib in Resources */,
 				0DFFE8361EB61CF7009A5446 /* LaunchScreen.storyboard in Resources */,
 				0DFFE8331EB61CF7009A5446 /* Assets.xcassets in Resources */,
 				0DFFE82E1EB61CF7009A5446 /* Main.storyboard in Resources */,
@@ -328,11 +333,12 @@
 			files = (
 				0DFFE8691EB61ECF009A5446 /* JHPHAsset.m in Sources */,
 				0DFFE8631EB61D73009A5446 /* JHPhotoCollection.m in Sources */,
-				0D9CFEF11EB7550000BB8F3D /* JHAblumCollectionViewCell.m in Sources */,
+				0D9CFEF11EB7550000BB8F3D /* JHPhotoCollectionViewCell.m in Sources */,
 				0D9CFEED1EB6FC8200BB8F3D /* JHPhotoAblumCollecitonView.m in Sources */,
 				0DFFE82B1EB61CF7009A5446 /* ViewController.m in Sources */,
 				0DFFE8311EB61CF7009A5446 /* JHPhotoDemo.xcdatamodeld in Sources */,
 				0DFFE8601EB61D51009A5446 /* JHPhotoManager.m in Sources */,
+				0D9CFEF51EB82A3700BB8F3D /* JHPhotoPickerColloctionView.m in Sources */,
 				0DFFE8281EB61CF7009A5446 /* AppDelegate.m in Sources */,
 				0DFFE8251EB61CF7009A5446 /* main.m in Sources */,
 			);

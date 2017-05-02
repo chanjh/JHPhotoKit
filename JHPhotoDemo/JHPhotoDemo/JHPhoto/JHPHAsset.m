@@ -30,4 +30,38 @@
     return jhPHAsset;
 }
 
+- (void)getThumbImageWithBlock:(void(^)(UIImage *image))block{
+    CGSize targetSize = CGSizeMake(150, 150);
+    PHImageRequestOptions *requestOptions = [[PHImageRequestOptions alloc] init];
+    requestOptions.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+    requestOptions.networkAccessAllowed = YES;
+    [[PHImageManager defaultManager]requestImageForAsset:self.asset targetSize:targetSize contentMode:PHImageContentModeAspectFill options:requestOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        if(block){
+            block(result);
+        }
+    }];
+}
+
+- (UIImage *)thumbImage{
+    if(!_thumbImage){
+        CGSize targetSize = CGSizeMake(10*1.5, 10*1.5);
+        PHImageRequestOptions *requestOptions = [[PHImageRequestOptions alloc] init];
+        requestOptions.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+        requestOptions.networkAccessAllowed = YES;
+//        __block UIImage *resultImage;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [[PHImageManager defaultManager]requestImageForAsset:self.asset targetSize:targetSize contentMode:PHImageContentModeAspectFill options:requestOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+//                resultImage = result;
+                dispatch_barrier_async(dispatch_get_main_queue(), ^{
+                    _thumbImage = result;
+                });
+            }];
+        });
+//        dispatch_barrier_async(dispatch_get_main_queue(), ^{
+//            _thumbImage = resultImage;
+//        });
+    }
+    return _thumbImage;
+}
+
 @end

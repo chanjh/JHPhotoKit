@@ -56,13 +56,13 @@
         {
             if ([collection isKindOfClass:[PHAssetCollection class]])
             {
-                PHFetchResult *collectionResult = [PHAsset fetchAssetsInAssetCollection:collection options:nil];
-                if (collectionResult.count > 0)
-                {
+//                PHFetchResult *collectionResult = [PHAsset fetchAssetsInAssetCollection:collection options:nil];
+//                if (collectionResult.count > 0)
+//                {
 //                    NSLog(@"%@", collection.localizedTitle);
                     JHPhotoCollection *photoCollection = [JHPhotoCollection collectionWithPHCollection:collection];
                     [groups addObject:photoCollection];
-                }
+//                }
             }
         }
     }
@@ -81,7 +81,19 @@
     NSLog(@"%@ -- %ld", collection.localizedTitle, result.count);
     return array;
 }
-
-
++ (NSArray <JHPHAsset *>*)getMediaWithTypes:(NSArray*)typesArray fromCollction:(PHCollection *)collection;{
+    PHFetchOptions *options = [[PHFetchOptions alloc] init];
+    [options setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]]];
+    PHFetchResult *allPhotos = [PHAsset fetchAssetsWithOptions:options];
+    NSMutableArray *array = [NSMutableArray array];
+    for (PHAsset *asset in allPhotos){
+        JHPHAsset *jhAsset = [JHPHAsset assetWithPHAsset:asset];
+        [array addObject:jhAsset];
+    }
+    return array;
+}
++ (void)getAllMediaWithTypes:(NSArray *)typesArray withCallbackBlock:(JHPhotoManagerCallbackBlock)block{
+    
+}
 
 @end
