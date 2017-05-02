@@ -14,7 +14,6 @@
                                         UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSArray <JHPHAsset *> *assetList;
-@property (nonatomic, strong) UICollectionView *collectionView;
 
 @end
 
@@ -39,7 +38,7 @@
         // 定义大小
         layout.itemSize = CGSizeMake(cellW, cellW);
         // 设置最小行间距(上下的间距)
-        layout.minimumLineSpacing = 0;
+        layout.minimumLineSpacing = 2;
         // 设置垂直间距(左右的间距)
         layout.minimumInteritemSpacing = 0;
         
@@ -48,6 +47,7 @@
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.scrollEnabled = YES;
+        [_collectionView setBackgroundColor:[UIColor whiteColor]];
         [self addSubview:_collectionView];
     }
     return _collectionView;

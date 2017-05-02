@@ -18,8 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="218" height="246"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jP0-7t-mgZ">
-                        <rect key="frame" x="2" y="2" width="214" height="244"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jP0-7t-mgZ">
+                        <rect key="frame" x="2" y="0.0" width="214" height="246"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAC-SC-2Jq">
                         <rect key="frame" x="88" y="112.5" width="42" height="21"/>
@@ -36,7 +36,7 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="jP0-7t-mgZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="5An-J4-sCF"/>
+                <constraint firstItem="jP0-7t-mgZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5An-J4-sCF"/>
                 <constraint firstItem="3FO-Oi-LzL" firstAttribute="top" secondItem="WAC-SC-2Jq" secondAttribute="bottom" constant="5" id="AMe-ZR-yBP"/>
                 <constraint firstItem="3FO-Oi-LzL" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="II7-SA-AVW"/>
                 <constraint firstAttribute="bottom" secondItem="jP0-7t-mgZ" secondAttribute="bottom" id="JeM-Ha-Cin"/>

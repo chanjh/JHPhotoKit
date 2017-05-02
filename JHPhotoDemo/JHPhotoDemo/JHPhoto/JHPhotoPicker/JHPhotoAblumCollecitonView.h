@@ -12,6 +12,8 @@
 @interface JHPhotoAblumCollecitonView : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame andPhotoCollection:(NSArray <JHPhotoCollection *> *)collectionList;
+
 @property (nonatomic, strong, readonly) NSArray <JHPhotoCollection *> *photoCollectionList;
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @end

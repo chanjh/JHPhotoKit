@@ -14,5 +14,6 @@
 - (instancetype)initWithFrame:(CGRect)frame andPhotoAssets:(NSArray <JHPHAsset *> *)assetList;
 
 @property (nonatomic, strong, readonly) NSArray <JHPHAsset *> *assetList;
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @end
