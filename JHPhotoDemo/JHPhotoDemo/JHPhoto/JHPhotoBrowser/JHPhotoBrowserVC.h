@@ -10,7 +10,7 @@
 #import "JHPHAsset.h"
 
 @interface JHPhotoBrowserVC : UICollectionViewController
-
+- (instancetype)initWithIndex:(NSInteger)index;
 @property (nonatomic, strong) NSArray <JHPHAsset *> *photoList;
 
 @end

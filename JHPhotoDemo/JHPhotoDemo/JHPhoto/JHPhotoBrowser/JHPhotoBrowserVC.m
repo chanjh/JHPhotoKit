@@ -10,21 +10,28 @@
 #import "JHPhotoBrowserView.h"
 
 @interface JHPhotoBrowserVC ()
+@property (nonatomic, assign) NSInteger index;
 @end
 
 @implementation JHPhotoBrowserVC
 
 static NSString * const reuseIdentifier = @"Cell";
-
+- (instancetype)initWithIndex:(NSInteger)index{
+    self = [self init];
+    self.index = index;
+    return self;
+}
 - (instancetype)init{
     if(self = [super init]){
         [self setupCollectionView];
+        self.index = 0;
     }
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.collectionView setContentOffset:CGPointMake(self.view.frame.size.width * self.index, 0)];
 }
 
 - (void)setupCollectionView{

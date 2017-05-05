@@ -10,4 +10,5 @@
 
 @interface JHPhotoBrowserView : UICollectionViewCell
 - (void)setImageWithImage:(UIImage *)image;
+//@property (nonatomic, strong) NSIndexPath *indexPath;
 @end

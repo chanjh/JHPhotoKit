@@ -20,11 +20,9 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    JHPhotoBrowserVC *vc = [[JHPhotoBrowserVC alloc]init];
+    JHPhotoBrowserVC *vc = [[JHPhotoBrowserVC alloc]initWithIndex:indexPath.row];
     vc.photoList = self.photoList;
     [self.navigationController pushViewController:vc animated:YES];
-
 }
 
 @end
