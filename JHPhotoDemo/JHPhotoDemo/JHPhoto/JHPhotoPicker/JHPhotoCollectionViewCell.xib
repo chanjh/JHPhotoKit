@@ -21,6 +21,14 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jP0-7t-mgZ">
                         <rect key="frame" x="2" y="0.0" width="214" height="246"/>
                     </imageView>
+                    <visualEffectView opaque="NO" alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dw8-zS-HRE">
+                        <rect key="frame" x="2" y="0.0" width="214" height="246"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vVE-N0-bfx">
+                            <rect key="frame" x="0.0" y="0.0" width="214" height="246"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                        <blurEffect style="dark"/>
+                    </visualEffectView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAC-SC-2Jq">
                         <rect key="frame" x="88" y="112.5" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -36,12 +44,16 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="dw8-zS-HRE" firstAttribute="height" secondItem="jP0-7t-mgZ" secondAttribute="height" id="2vG-Bz-47q"/>
                 <constraint firstItem="jP0-7t-mgZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5An-J4-sCF"/>
                 <constraint firstItem="3FO-Oi-LzL" firstAttribute="top" secondItem="WAC-SC-2Jq" secondAttribute="bottom" constant="5" id="AMe-ZR-yBP"/>
                 <constraint firstItem="3FO-Oi-LzL" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="II7-SA-AVW"/>
                 <constraint firstAttribute="bottom" secondItem="jP0-7t-mgZ" secondAttribute="bottom" id="JeM-Ha-Cin"/>
                 <constraint firstItem="WAC-SC-2Jq" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="LxX-8J-fDZ"/>
+                <constraint firstItem="dw8-zS-HRE" firstAttribute="width" secondItem="jP0-7t-mgZ" secondAttribute="width" id="RcK-w0-JYp"/>
+                <constraint firstItem="dw8-zS-HRE" firstAttribute="centerY" secondItem="jP0-7t-mgZ" secondAttribute="centerY" id="h4T-Xl-DHi"/>
                 <constraint firstItem="WAC-SC-2Jq" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="l2N-E3-Quc"/>
+                <constraint firstItem="dw8-zS-HRE" firstAttribute="centerX" secondItem="jP0-7t-mgZ" secondAttribute="centerX" id="lWM-Ox-QeI"/>
                 <constraint firstItem="jP0-7t-mgZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="w19-gt-mgK"/>
                 <constraint firstAttribute="trailing" secondItem="jP0-7t-mgZ" secondAttribute="trailing" constant="2" id="yJJ-5r-9O8"/>
             </constraints>
@@ -50,6 +62,7 @@
                 <outlet property="ablumImageView" destination="jP0-7t-mgZ" id="ypt-Lv-Uru"/>
                 <outlet property="ablumNameLabel" destination="WAC-SC-2Jq" id="lPx-a5-Zri"/>
                 <outlet property="numLabel" destination="3FO-Oi-LzL" id="dOI-0e-NEG"/>
+                <outlet property="visualView" destination="dw8-zS-HRE" id="IfG-fW-PLu"/>
             </connections>
             <point key="canvasLocation" x="29" y="152"/>
         </collectionViewCell>

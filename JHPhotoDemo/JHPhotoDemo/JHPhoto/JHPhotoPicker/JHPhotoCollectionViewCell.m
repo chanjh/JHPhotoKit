@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *ablumNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *ablumImageView;
 @property (weak, nonatomic) IBOutlet UILabel *numLabel;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *visualView;
 
 @end
 
@@ -27,6 +28,7 @@
         }];
         return;
     }else if(self.photoAsset) {
+        [self.visualView setHidden:YES];
         [self.ablumNameLabel setHidden:YES];
         [self.numLabel setHidden:YES];
         [self.photoAsset getThumbImageWithBlock:^(UIImage *image) {

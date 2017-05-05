@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D0E1F571EBC20440059CCAA /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E1F561EBC20440059CCAA /* PickerViewController.m */; };
 		0D9CFEED1EB6FC8200BB8F3D /* JHPhotoAblumCollecitonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CFEEC1EB6FC8200BB8F3D /* JHPhotoAblumCollecitonView.m */; };
 		0D9CFEF11EB7550000BB8F3D /* JHPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CFEEF1EB7550000BB8F3D /* JHPhotoCollectionViewCell.m */; };
 		0D9CFEF21EB7550000BB8F3D /* JHPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D9CFEF01EB7550000BB8F3D /* JHPhotoCollectionViewCell.xib */; };
 		0D9CFEF51EB82A3700BB8F3D /* JHPhotoPickerColloctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CFEF41EB82A3700BB8F3D /* JHPhotoPickerColloctionView.m */; };
+		0DF658CF1EBC1C2300CA375A /* JHPhotoBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF658CC1EBC1C2300CA375A /* JHPhotoBrowserView.m */; };
+		0DF658D01EBC1C2300CA375A /* JHPhotoBrowserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF658CE1EBC1C2300CA375A /* JHPhotoBrowserVC.m */; };
 		0DFFE8251EB61CF7009A5446 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFE8241EB61CF7009A5446 /* main.m */; };
 		0DFFE8281EB61CF7009A5446 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFE8271EB61CF7009A5446 /* AppDelegate.m */; };
 		0DFFE82B1EB61CF7009A5446 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFE82A1EB61CF7009A5446 /* ViewController.m */; };
@@ -43,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D0E1F551EBC20440059CCAA /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
+		0D0E1F561EBC20440059CCAA /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
 		0D9CFEEB1EB6FC8200BB8F3D /* JHPhotoAblumCollecitonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoAblumCollecitonView.h; sourceTree = "<group>"; };
 		0D9CFEEC1EB6FC8200BB8F3D /* JHPhotoAblumCollecitonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoAblumCollecitonView.m; sourceTree = "<group>"; };
 		0D9CFEEE1EB7550000BB8F3D /* JHPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoCollectionViewCell.h; sourceTree = "<group>"; };
@@ -50,6 +55,10 @@
 		0D9CFEF01EB7550000BB8F3D /* JHPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		0D9CFEF31EB82A3700BB8F3D /* JHPhotoPickerColloctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoPickerColloctionView.h; sourceTree = "<group>"; };
 		0D9CFEF41EB82A3700BB8F3D /* JHPhotoPickerColloctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoPickerColloctionView.m; sourceTree = "<group>"; };
+		0DF658CB1EBC1C2300CA375A /* JHPhotoBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoBrowserView.h; sourceTree = "<group>"; };
+		0DF658CC1EBC1C2300CA375A /* JHPhotoBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoBrowserView.m; sourceTree = "<group>"; };
+		0DF658CD1EBC1C2300CA375A /* JHPhotoBrowserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoBrowserVC.h; sourceTree = "<group>"; };
+		0DF658CE1EBC1C2300CA375A /* JHPhotoBrowserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoBrowserVC.m; sourceTree = "<group>"; };
 		0DFFE8201EB61CF7009A5446 /* JHPhotoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JHPhotoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DFFE8241EB61CF7009A5446 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0DFFE8261EB61CF7009A5446 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +110,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D5107461EB89945005F4FBA /* JHPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				0DF658CB1EBC1C2300CA375A /* JHPhotoBrowserView.h */,
+				0DF658CC1EBC1C2300CA375A /* JHPhotoBrowserView.m */,
+				0DF658CD1EBC1C2300CA375A /* JHPhotoBrowserVC.h */,
+				0DF658CE1EBC1C2300CA375A /* JHPhotoBrowserVC.m */,
+			);
+			path = JHPhotoBrowser;
+			sourceTree = "<group>";
+		};
 		0D9CFEE51EB6FC3800BB8F3D /* JHPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +163,8 @@
 				0DFFE8271EB61CF7009A5446 /* AppDelegate.m */,
 				0DFFE8291EB61CF7009A5446 /* ViewController.h */,
 				0DFFE82A1EB61CF7009A5446 /* ViewController.m */,
+				0D0E1F551EBC20440059CCAA /* PickerViewController.h */,
+				0D0E1F561EBC20440059CCAA /* PickerViewController.m */,
 				0DFFE82C1EB61CF7009A5446 /* Main.storyboard */,
 				0DFFE8321EB61CF7009A5446 /* Assets.xcassets */,
 				0DFFE8341EB61CF7009A5446 /* LaunchScreen.storyboard */,
@@ -182,6 +204,7 @@
 		0DFFE85D1EB61D51009A5446 /* JHPhoto */ = {
 			isa = PBXGroup;
 			children = (
+				0D5107461EB89945005F4FBA /* JHPhotoBrowser */,
 				0D9CFEE51EB6FC3800BB8F3D /* JHPhotoPicker */,
 				0DFFE85E1EB61D51009A5446 /* JHPhotoManager.h */,
 				0DFFE85F1EB61D51009A5446 /* JHPhotoManager.m */,
@@ -334,9 +357,12 @@
 				0DFFE8691EB61ECF009A5446 /* JHPHAsset.m in Sources */,
 				0DFFE8631EB61D73009A5446 /* JHPhotoCollection.m in Sources */,
 				0D9CFEF11EB7550000BB8F3D /* JHPhotoCollectionViewCell.m in Sources */,
+				0D0E1F571EBC20440059CCAA /* PickerViewController.m in Sources */,
+				0DF658D01EBC1C2300CA375A /* JHPhotoBrowserVC.m in Sources */,
 				0D9CFEED1EB6FC8200BB8F3D /* JHPhotoAblumCollecitonView.m in Sources */,
 				0DFFE82B1EB61CF7009A5446 /* ViewController.m in Sources */,
 				0DFFE8311EB61CF7009A5446 /* JHPhotoDemo.xcdatamodeld in Sources */,
+				0DF658CF1EBC1C2300CA375A /* JHPhotoBrowserView.m in Sources */,
 				0DFFE8601EB61D51009A5446 /* JHPhotoManager.m in Sources */,
 				0D9CFEF51EB82A3700BB8F3D /* JHPhotoPickerColloctionView.m in Sources */,
 				0DFFE8281EB61CF7009A5446 /* AppDelegate.m in Sources */,

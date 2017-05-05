@@ -65,7 +65,8 @@
     return self.assetList.count;
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"Row:%ld -- Section:%ld", (long)indexPath.row, (long)indexPath.section);
+    
+    
 }
 
 
