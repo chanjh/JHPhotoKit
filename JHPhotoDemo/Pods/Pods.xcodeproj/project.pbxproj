@@ -13,7 +13,6 @@
 
 /* Begin PBXFileReference section */
 		032733EB0EAF3D7A97607E7FEC466E0F /* Pods-JHPhotoDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JHPhotoDemo-acknowledgements.plist"; sourceTree = "<group>"; };
-		0D12E5A8163D5A0212FB98C03A5C397B /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealServer.framework; path = "RevealServer-2/iOS/RevealServer.framework"; sourceTree = "<group>"; };
 		220BD9CE8589C576674DDF74A04C2985 /* Pods-JHPhotoDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JHPhotoDemo-frameworks.sh"; sourceTree = "<group>"; };
 		250E76E67375E7139DC82620B5C712D6 /* Pods-JHPhotoDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JHPhotoDemo-dummy.m"; sourceTree = "<group>"; };
 		4A68FAE552C8733EB3E6AFF44F876A32 /* Pods-JHPhotoDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JHPhotoDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -50,26 +49,9 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				9B6766349D399265AA26ED6C7E8D5333 /* Pods */,
 				F4DB8351A63D301BEC5470B4D1A3D71A /* Products */,
 				E1AE63CEBCC991D1E451B4D9E37EA8BD /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		947215B0BF31147F7129D43BB09A036C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0D12E5A8163D5A0212FB98C03A5C397B /* RevealServer.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9B6766349D399265AA26ED6C7E8D5333 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E853FEE7349B6E1788A524CC074AEEB0 /* Reveal-SDK */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		B13B8B9508DB64BDB2613A79498E1AB8 /* Pods-JHPhotoDemo */ = {
@@ -101,15 +83,6 @@
 				B13B8B9508DB64BDB2613A79498E1AB8 /* Pods-JHPhotoDemo */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		E853FEE7349B6E1788A524CC074AEEB0 /* Reveal-SDK */ = {
-			isa = PBXGroup;
-			children = (
-				947215B0BF31147F7129D43BB09A036C /* Frameworks */,
-			);
-			name = "Reveal-SDK";
-			path = "Reveal-SDK";
 			sourceTree = "<group>";
 		};
 		F4DB8351A63D301BEC5470B4D1A3D71A /* Products */ = {

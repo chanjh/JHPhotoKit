@@ -48,11 +48,8 @@ static NSString * const reuseIdentifier = @"Cell";
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     layout.itemSize = CGSizeMake(screenSize.width, screenSize.height);
-    // 设置最小行间距(上下的间距)
     layout.minimumLineSpacing = 0;
-    // 设置垂直间距(左右的间距)
     layout.minimumInteritemSpacing = 0;
-    
     [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     
     self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height) collectionViewLayout:layout];
@@ -125,11 +122,11 @@ static NSString * const reuseIdentifier = @"Cell";
         [recognizer.view setFrame:_firstFrame];
         UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)recognizer;
         [panGestureRecognizer setTranslation:CGPointZero inView:recognizer.view];
-        [self dismissViewVC];
+        [self dismissVC];
     }
 }
 
-- (void)dismissViewVC{
+- (void)dismissVC{
     
 }
 

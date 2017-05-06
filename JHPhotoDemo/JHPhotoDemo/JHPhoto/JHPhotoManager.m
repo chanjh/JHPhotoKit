@@ -39,10 +39,6 @@
         }
         return;
     }
-//    NSMutableArray *typesArray = [NSMutableArray array];
-//    for (JHPhotoAssetType type = JHPhotoAssetTypePhoto; type <= JHPhotoAssetTypePanoramic; type++){
-//        [typesArray addObject:[NSNumber numberWithUnsignedInteger:type]];
-//    }
     // 获取所有相册
     PHFetchOptions *options = [[PHFetchOptions alloc] init];
     [options setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]]];
@@ -56,13 +52,8 @@
         {
             if ([collection isKindOfClass:[PHAssetCollection class]])
             {
-//                PHFetchResult *collectionResult = [PHAsset fetchAssetsInAssetCollection:collection options:nil];
-//                if (collectionResult.count > 0)
-//                {
-//                    NSLog(@"%@", collection.localizedTitle);
                     JHPhotoCollection *photoCollection = [JHPhotoCollection collectionWithPHCollection:collection];
                     [groups addObject:photoCollection];
-//                }
             }
         }
     }

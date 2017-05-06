@@ -31,7 +31,6 @@
 # pragma mark - Getter and setter
 - (UICollectionView *)collectionView{
     if(!_collectionView){
-        // 设置流水布局
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         CGFloat cellW = (screenSize.width - 2*3)/4;
