@@ -26,6 +26,7 @@
 		0DFFE8601EB61D51009A5446 /* JHPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFE85F1EB61D51009A5446 /* JHPhotoManager.m */; };
 		0DFFE8631EB61D73009A5446 /* JHPhotoCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFE8621EB61D73009A5446 /* JHPhotoCollection.m */; };
 		0DFFE8691EB61ECF009A5446 /* JHPHAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFE8681EB61ECF009A5446 /* JHPHAsset.m */; };
+		C4620D240637DF6AE0457F6A /* libPods-JHPhotoDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD3BD5E6876EEE65243A040 /* libPods-JHPhotoDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,9 @@
 		0DFFE8671EB61ECF009A5446 /* JHPHAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPHAsset.h; sourceTree = "<group>"; };
 		0DFFE8681EB61ECF009A5446 /* JHPHAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPHAsset.m; sourceTree = "<group>"; };
 		0DFFE86A1EB6357A009A5446 /* JHPhotoHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHPhotoHeader.h; sourceTree = "<group>"; };
+		3BD3BD5E6876EEE65243A040 /* libPods-JHPhotoDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JHPhotoDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B3FB986CB7C9A0B5539EB93 /* Pods-JHPhotoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHPhotoDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JHPhotoDemo/Pods-JHPhotoDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		E7E37A5BFC5AB02D9B33A941 /* Pods-JHPhotoDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHPhotoDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-JHPhotoDemo/Pods-JHPhotoDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4620D240637DF6AE0457F6A /* libPods-JHPhotoDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +140,14 @@
 			path = JHPhotoPicker;
 			sourceTree = "<group>";
 		};
+		0DC728F764F536A5A5FB6FA0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3BD3BD5E6876EEE65243A040 /* libPods-JHPhotoDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0DFFE8171EB61CF7009A5446 = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +155,8 @@
 				0DFFE83F1EB61CF7009A5446 /* JHPhotoDemoTests */,
 				0DFFE84A1EB61CF7009A5446 /* JHPhotoDemoUITests */,
 				0DFFE8211EB61CF7009A5446 /* Products */,
+				8B70137168EB26915A207E3C /* Pods */,
+				0DC728F764F536A5A5FB6FA0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -217,6 +232,15 @@
 			path = JHPhoto;
 			sourceTree = "<group>";
 		};
+		8B70137168EB26915A207E3C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4B3FB986CB7C9A0B5539EB93 /* Pods-JHPhotoDemo.debug.xcconfig */,
+				E7E37A5BFC5AB02D9B33A941 /* Pods-JHPhotoDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -224,9 +248,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DFFE8501EB61CF7009A5446 /* Build configuration list for PBXNativeTarget "JHPhotoDemo" */;
 			buildPhases = (
+				A75FA009B678FE2102C2A969 /* [CP] Check Pods Manifest.lock */,
 				0DFFE81C1EB61CF7009A5446 /* Sources */,
 				0DFFE81D1EB61CF7009A5446 /* Frameworks */,
 				0DFFE81E1EB61CF7009A5446 /* Resources */,
+				87115E41D346B526269EA7F5 /* [CP] Embed Pods Frameworks */,
+				B9DBDF3EE227CBEE54960DB1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -348,6 +375,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		87115E41D346B526269EA7F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JHPhotoDemo/Pods-JHPhotoDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A75FA009B678FE2102C2A969 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B9DBDF3EE227CBEE54960DB1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JHPhotoDemo/Pods-JHPhotoDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0DFFE81C1EB61CF7009A5446 /* Sources */ = {
@@ -515,6 +590,7 @@
 		};
 		0DFFE8511EB61CF7009A5446 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B3FB986CB7C9A0B5539EB93 /* Pods-JHPhotoDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V6TK3T5LMM;
@@ -527,6 +603,7 @@
 		};
 		0DFFE8521EB61CF7009A5446 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7E37A5BFC5AB02D9B33A941 /* Pods-JHPhotoDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V6TK3T5LMM;

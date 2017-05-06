@@ -7,11 +7,17 @@
 //
 
 #import "JHPhotoBrowserView.h"
+typedef NS_ENUM(NSUInteger, JHPhotoBrowserDire) {
+    JHPhotoBrowserDireNone,
+    JHPhotoBrowserDireUp,
+    JHPhotoBrowserDireDown,
+};
 
 @interface JHPhotoBrowserView()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, assign) JHPhotoBrowserDire dire;
 
 @end
 
@@ -28,8 +34,10 @@
         [self.imageView setCenter:CGPointMake(self.frame.size.width/2, self.center.y)];
     }
     [self.imageView setImage:image];
+    self.imageView.userInteractionEnabled = YES;
     [self setupScrollView];
 }
+
 - (void)setupScrollView{
     CGRect frame = self.frame;
     _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, frame.origin.y, frame.size.width, frame.size.height)];
@@ -55,7 +63,7 @@
     [self addSubview:self.scrollView];
 }
 
-
+# pragma mark - UIScrollViewDelegate
 - (CGPoint)centerOfScrollViewContent:(UIScrollView *)scrollView
 {
     CGFloat offsetX = (scrollView.bounds.size.width > scrollView.contentSize.width)?
@@ -71,8 +79,6 @@
     return self.imageView;
 }
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView{
-    NSLog(@"%f",scrollView.contentOffset.x);
-    NSLog(@"%f",scrollView.contentOffset.y);
     self.imageView.center = [self centerOfScrollViewContent:scrollView];
 }
 
