@@ -15,9 +15,9 @@
 * Support Photo Bowser
 * Support Gesture
 
-## TODO List
+## Todo List
 
+- [x] 强化 demo 中的 viewController
 - [ ] 支持 gif, 视频和 live photo
-- [ ] 强化 demo 中的 viewController
 - [ ] 查看图片更多信息
 

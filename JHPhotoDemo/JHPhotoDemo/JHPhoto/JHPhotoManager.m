@@ -64,7 +64,9 @@
 
 + (NSArray <JHPHAsset *>*)getPhotosFromCollction:(PHAssetCollection *)collection{
     NSMutableArray *array = [NSMutableArray array];
-    PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:collection options:nil];
+    PHFetchOptions *options = [[PHFetchOptions alloc] init];
+    [options setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]]];
+    PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:collection options:options];
     for (PHAsset *phAsset in result){
         JHPHAsset *asset = [JHPHAsset assetWithPHAsset:phAsset];
         [array addObject:asset];

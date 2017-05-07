@@ -17,9 +17,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:[[ViewController alloc]init]];
-    [self.window setRootViewController:navController];
-    [self.window makeKeyWindow];
+//    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:[[ViewController alloc]init]];
+//    [self.window setRootViewController:navController];
+//    [self.window makeKeyWindow];
     return YES;
 }
 

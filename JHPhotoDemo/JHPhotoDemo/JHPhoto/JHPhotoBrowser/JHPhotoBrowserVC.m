@@ -127,7 +127,7 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (void)dismissVC{
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 # pragma mark - UIGestureDelegate
