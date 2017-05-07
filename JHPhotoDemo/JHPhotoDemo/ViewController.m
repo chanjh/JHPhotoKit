@@ -63,30 +63,24 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    // 网络上找来，用 UIImagePicker 展示 Live Photo 的方法
     // dismiss the picker
     [self dismissViewControllerAnimated:YES completion:nil];
-    
     // if we have a live photo view already, remove it
     if ([self.view viewWithTag:87]) {
         UIView *subview = [self.view viewWithTag:87];
         [subview removeFromSuperview];
     }
-    
     // check if this is a Live Image, otherwise present a warning
     PHLivePhoto *photo = [info objectForKey:UIImagePickerControllerLivePhoto];
     if (!photo) {
         
         return;
     }
-    
     // create a Live Photo View
     PHLivePhotoView *photoView = [[PHLivePhotoView alloc]initWithFrame:self.view.bounds];
     photoView.livePhoto = [info objectForKey:UIImagePickerControllerLivePhoto];
     photoView.contentMode = UIViewContentModeScaleAspectFit;
     photoView.tag = 87;
-    
-    // bring up the Live Photo View
-    [self.view addSubview:photoView];
-    [self.view sendSubviewToBack:photoView];
 }
 @end
