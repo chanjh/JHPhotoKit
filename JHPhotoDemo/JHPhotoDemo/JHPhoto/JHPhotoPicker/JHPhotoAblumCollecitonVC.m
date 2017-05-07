@@ -31,7 +31,7 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSArray *array = [JHPhotoManager getPhotosFromCollction:self.ablumView.photoCollectionList[indexPath.row].collection];
+    NSArray *array = [JHPhotoManager getPhotosFromCollction:self.ablumView.photoCollectionList[indexPath.row]];
     JHPhotoPickerColloctionVC *vc = [[JHPhotoPickerColloctionVC alloc]initWithFrame:[UIScreen mainScreen].bounds andPhotoAssets:array];
     [self.navigationController pushViewController:vc animated:YES];
 }

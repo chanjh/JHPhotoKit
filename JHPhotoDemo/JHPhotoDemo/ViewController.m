@@ -44,10 +44,11 @@
         strongSelf.collectionList = jhPhotoCollectionArray;
         JHPhotoAblumCollecitonVC *vc = [[JHPhotoAblumCollecitonVC alloc]initWithFrame:self.view.frame andPhotoCollection:jhPhotoCollectionArray];
         [strongSelf.navigationController pushViewController:vc animated:YES];
-    }];
+    } withEmpty:NO];
 }
+
 - (IBAction)pickerAction:(id)sender {
-    
+    // 网络上找来，用 UIImagePicker 展示 Live Photo 的方法
     // create an image picker
     UIImagePickerController *picker = [[UIImagePickerController alloc]init];
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -63,7 +64,6 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    // 网络上找来，用 UIImagePicker 展示 Live Photo 的方法
     // dismiss the picker
     [self dismissViewControllerAnimated:YES completion:nil];
     // if we have a live photo view already, remove it

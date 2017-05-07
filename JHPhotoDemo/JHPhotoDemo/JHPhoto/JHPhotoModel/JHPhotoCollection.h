@@ -8,6 +8,7 @@
 
 #import "JHPhotoHeader.h"
 
+@class JHPhotoAsset;
 @interface JHPhotoCollection : NSObject
 
 /**
@@ -21,6 +22,10 @@
 
 - (void)getThumbImageWithBlock:(void(^)(UIImage *image))block;
 
+/**
+ * collection 内包含的所有 asset
+ */
+@property (nonatomic, strong) PHFetchResult *containAsset;
 @property (nonatomic, strong, readonly) NSString *collectionName;
 @property (nonatomic, strong, readonly) PHAssetCollection *collection;
 @property (nonatomic, strong, readonly) UIImage *thumbImage;

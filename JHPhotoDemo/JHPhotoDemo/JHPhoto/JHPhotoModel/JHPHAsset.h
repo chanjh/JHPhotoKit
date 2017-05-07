@@ -22,6 +22,9 @@ typedef NS_ENUM(NSUInteger, JHPhotoAssetType) {
     JHPhotoAssetTypeVideoStreamed      = (1UL << 16),
     JHPhotoAssetTypeVideoHighFrameRate = (1UL << 17),
     JHPhotoAssetTypeVideoTimelapse     = (1UL << 18),
+    
+    JHPhotoAssetTypeGif                = (1UL << 30),
+//    JHPhotoAssetType                = (1UL << 31),
 };
 
 /**

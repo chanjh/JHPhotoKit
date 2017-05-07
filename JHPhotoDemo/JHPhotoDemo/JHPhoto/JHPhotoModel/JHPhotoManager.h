@@ -34,17 +34,29 @@ typedef void(^JHPhotoManagerCallbackBlock)(NSArray <JHPhotoCollection *> *jhPhot
  */
 
 # pragma mark - 获取用户数据
-// 获取用户的所有相册<包括智能等>
+
+/**
+ * 获取用户的所有相册<包括智能等>
+ * @prama: 回调 block
+ * @prama: 是否返回空相册
+ */
++ (void)getAllAblumWithCallbackBlock:(JHPhotoManagerCallbackBlock)block withEmpty:(BOOL)empty;
+
+/**
+ * 获取用户的所有相册<包括智能等>
+ * 包含空相册
+ */
 + (void)getAllAblumWithCallbackBlock:(JHPhotoManagerCallbackBlock)block;
+
 
 // 获取用户所有某个（些）类型的媒体
 + (void)getAllMediaWithTypes:(NSArray *)typesArray withCallbackBlock:(JHPhotoManagerCallbackBlock)block;
 
 // 获取某个相册下的所有类型的媒体
-+ (NSArray <JHPHAsset *> *)getPhotosFromCollction:(PHAssetCollection *)collection;
++ (NSArray <JHPHAsset *> *)getPhotosFromCollction:(JHPhotoCollection *)collection;
 
 // 获取某个相册下某个（些）类型的所有媒体
-+ (NSArray <JHPHAsset *>*)getMediaWithTypes:(NSArray*)typesArray fromCollction:(PHCollection *)collection;
++ (NSArray <JHPHAsset *>*)getMediaWithTypes:(NSArray*)typesArray fromCollction:(JHPhotoCollection *)collection;
 
 
 @property (nonatomic, strong) PHFetchResult *fetchResult;

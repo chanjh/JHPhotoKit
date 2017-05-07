@@ -54,6 +54,22 @@
 }
 @end
 
+# pragma mark - Gif 图
+@implementation JHPHGifAsset
+- (instancetype)initWithPHAsset:(PHAsset *)asset{
+    if(self = [super initWithPHAsset:asset]){
+        self.assetType = JHPhotoAssetTypeGif;
+    }
+    return self;
+}
+
++ (instancetype)assetWithPHAsset:(PHAsset *)asset{
+    JHPHGifAsset *gifAsset = [[JHPHGifAsset alloc]initWithPHAsset:asset];
+    return gifAsset;
+}
+
+@end
+
 # pragma mark - Live Photo
 @interface JHPHLivePhotoAsset()
 @property (nonatomic, strong) PHLivePhoto *livePhoto;
@@ -62,6 +78,7 @@
 @implementation JHPHLivePhotoAsset
 - (instancetype)initWithPHAsset:(PHAsset *)asset{
     if(self = [super initWithPHAsset:asset]){
+
     }
     return self;
 }
