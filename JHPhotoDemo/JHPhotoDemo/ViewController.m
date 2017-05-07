@@ -9,8 +9,16 @@
 #import "ViewController.h"
 #import "JHPhotoManager.h"
 #import "JHPhotoAblumCollecitonVC.h"
+#import <PhotosUI/PhotosUI.h>
 
-@interface ViewController ()<UICollectionViewDelegate>
+//@import Photos;
+//@import PhotosUI;
+@import MobileCoreServices;
+
+@interface ViewController ()<UICollectionViewDelegate,
+                            UIImagePickerControllerDelegate,
+                            UINavigationControllerDelegate,
+                            PHLivePhotoViewDelegate>
 @property (nonatomic, strong) NSArray <JHPhotoCollection *> *collectionList;
 @end
 
@@ -19,6 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"JHPhotoDemo";
+    // 方便调试……
+    [self enterAction:nil];
 }
 
 - (IBAction)enterAction:(id)sender
@@ -32,9 +42,51 @@
     [JHPhotoManager getAllAblumWithCallbackBlock:^(NSArray<JHPhotoCollection *> *jhPhotoCollectionArray, NSError *error) {
         __weak typeof(weakSelf)strongSelf = weakSelf;
         strongSelf.collectionList = jhPhotoCollectionArray;
-        JHPhotoAblumCollecitonVC *view = [[JHPhotoAblumCollecitonVC alloc]initWithFrame:self.view.frame andPhotoCollection:jhPhotoCollectionArray];
-        [strongSelf.navigationController pushViewController:view animated:YES];
+        JHPhotoAblumCollecitonVC *vc = [[JHPhotoAblumCollecitonVC alloc]initWithFrame:self.view.frame andPhotoCollection:jhPhotoCollectionArray];
+        [strongSelf.navigationController pushViewController:vc animated:YES];
     }];
 }
+- (IBAction)pickerAction:(id)sender {
+    
+    // create an image picker
+    UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.allowsEditing = NO;
+    picker.delegate = self;
+    
+    // make sure we include Live Photos (otherwise we'll only get UIImages)
+    NSArray *mediaTypes = @[(NSString *)kUTTypeImage, (NSString *)kUTTypeLivePhoto];
+    picker.mediaTypes = mediaTypes;
+    
+    // bring up the picker
+    [self presentViewController:picker animated:YES completion:nil];
+}
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    // dismiss the picker
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // if we have a live photo view already, remove it
+    if ([self.view viewWithTag:87]) {
+        UIView *subview = [self.view viewWithTag:87];
+        [subview removeFromSuperview];
+    }
+    
+    // check if this is a Live Image, otherwise present a warning
+    PHLivePhoto *photo = [info objectForKey:UIImagePickerControllerLivePhoto];
+    if (!photo) {
+        
+        return;
+    }
+    
+    // create a Live Photo View
+    PHLivePhotoView *photoView = [[PHLivePhotoView alloc]initWithFrame:self.view.bounds];
+    photoView.livePhoto = [info objectForKey:UIImagePickerControllerLivePhoto];
+    photoView.contentMode = UIViewContentModeScaleAspectFit;
+    photoView.tag = 87;
+    
+    // bring up the Live Photo View
+    [self.view addSubview:photoView];
+    [self.view sendSubviewToBack:photoView];
+}
 @end

@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class JHPHAsset;
+/**
+ * 图片浏览器中的 cell
+ */
 @interface JHPhotoBrowserView : UICollectionViewCell
-- (void)setImageWithImage:(UIImage *)image;
-//@property (nonatomic, strong) NSIndexPath *indexPath;
+- (void)setViewWithAsset:(JHPHAsset *)asset;
 @end

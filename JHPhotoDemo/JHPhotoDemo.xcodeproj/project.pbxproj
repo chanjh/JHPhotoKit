@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0D67109D1EBEB6F800B00549 /* JHPhotoPickerColloctionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D67109C1EBEB6F800B00549 /* JHPhotoPickerColloctionVC.m */; };
 		0D6710A01EBEBD6B00B00549 /* JHPhotoAblumCollecitonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D67109F1EBEBD6B00B00549 /* JHPhotoAblumCollecitonVC.m */; };
+		0D6710A81EBEC64C00B00549 /* JHPHAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6710A31EBEC64C00B00549 /* JHPHAsset.m */; };
+		0D6710A91EBEC64C00B00549 /* JHPhotoCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6710A51EBEC64C00B00549 /* JHPhotoCollection.m */; };
+		0D6710AA1EBEC64C00B00549 /* JHPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6710A71EBEC64C00B00549 /* JHPhotoManager.m */; };
 		0D9CFEF11EB7550000BB8F3D /* JHPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CFEEF1EB7550000BB8F3D /* JHPhotoCollectionViewCell.m */; };
 		0D9CFEF21EB7550000BB8F3D /* JHPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D9CFEF01EB7550000BB8F3D /* JHPhotoCollectionViewCell.xib */; };
 		0DF658CF1EBC1C2300CA375A /* JHPhotoBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF658CC1EBC1C2300CA375A /* JHPhotoBrowserView.m */; };
@@ -22,9 +25,6 @@
 		0DFFE8361EB61CF7009A5446 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE8341EB61CF7009A5446 /* LaunchScreen.storyboard */; };
 		0DFFE8411EB61CF7009A5446 /* JHPhotoDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFE8401EB61CF7009A5446 /* JHPhotoDemoTests.m */; };
 		0DFFE84C1EB61CF7009A5446 /* JHPhotoDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFE84B1EB61CF7009A5446 /* JHPhotoDemoUITests.m */; };
-		0DFFE8601EB61D51009A5446 /* JHPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFE85F1EB61D51009A5446 /* JHPhotoManager.m */; };
-		0DFFE8631EB61D73009A5446 /* JHPhotoCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFE8621EB61D73009A5446 /* JHPhotoCollection.m */; };
-		0DFFE8691EB61ECF009A5446 /* JHPHAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFE8681EB61ECF009A5446 /* JHPHAsset.m */; };
 		C4620D240637DF6AE0457F6A /* libPods-JHPhotoDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BD3BD5E6876EEE65243A040 /* libPods-JHPhotoDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +50,12 @@
 		0D67109C1EBEB6F800B00549 /* JHPhotoPickerColloctionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoPickerColloctionVC.m; sourceTree = "<group>"; };
 		0D67109E1EBEBD6B00B00549 /* JHPhotoAblumCollecitonVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoAblumCollecitonVC.h; sourceTree = "<group>"; };
 		0D67109F1EBEBD6B00B00549 /* JHPhotoAblumCollecitonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoAblumCollecitonVC.m; sourceTree = "<group>"; };
+		0D6710A21EBEC64C00B00549 /* JHPHAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPHAsset.h; sourceTree = "<group>"; };
+		0D6710A31EBEC64C00B00549 /* JHPHAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPHAsset.m; sourceTree = "<group>"; };
+		0D6710A41EBEC64C00B00549 /* JHPhotoCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoCollection.h; sourceTree = "<group>"; };
+		0D6710A51EBEC64C00B00549 /* JHPhotoCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoCollection.m; sourceTree = "<group>"; };
+		0D6710A61EBEC64C00B00549 /* JHPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoManager.h; sourceTree = "<group>"; };
+		0D6710A71EBEC64C00B00549 /* JHPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoManager.m; sourceTree = "<group>"; };
 		0D9CFEEE1EB7550000BB8F3D /* JHPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoCollectionViewCell.h; sourceTree = "<group>"; };
 		0D9CFEEF1EB7550000BB8F3D /* JHPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		0D9CFEF01EB7550000BB8F3D /* JHPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -74,12 +80,6 @@
 		0DFFE8471EB61CF7009A5446 /* JHPhotoDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JHPhotoDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DFFE84B1EB61CF7009A5446 /* JHPhotoDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHPhotoDemoUITests.m; sourceTree = "<group>"; };
 		0DFFE84D1EB61CF7009A5446 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0DFFE85E1EB61D51009A5446 /* JHPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoManager.h; sourceTree = "<group>"; };
-		0DFFE85F1EB61D51009A5446 /* JHPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoManager.m; sourceTree = "<group>"; };
-		0DFFE8611EB61D73009A5446 /* JHPhotoCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoCollection.h; sourceTree = "<group>"; };
-		0DFFE8621EB61D73009A5446 /* JHPhotoCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoCollection.m; sourceTree = "<group>"; };
-		0DFFE8671EB61ECF009A5446 /* JHPHAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPHAsset.h; sourceTree = "<group>"; };
-		0DFFE8681EB61ECF009A5446 /* JHPHAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPHAsset.m; sourceTree = "<group>"; };
 		0DFFE86A1EB6357A009A5446 /* JHPhotoHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHPhotoHeader.h; sourceTree = "<group>"; };
 		3BD3BD5E6876EEE65243A040 /* libPods-JHPhotoDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JHPhotoDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B3FB986CB7C9A0B5539EB93 /* Pods-JHPhotoDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JHPhotoDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JHPhotoDemo/Pods-JHPhotoDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +121,19 @@
 				0DF658CE1EBC1C2300CA375A /* JHPhotoBrowserVC.m */,
 			);
 			path = JHPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		0D6710A11EBEC64C00B00549 /* JHPhotoModel */ = {
+			isa = PBXGroup;
+			children = (
+				0D6710A21EBEC64C00B00549 /* JHPHAsset.h */,
+				0D6710A31EBEC64C00B00549 /* JHPHAsset.m */,
+				0D6710A41EBEC64C00B00549 /* JHPhotoCollection.h */,
+				0D6710A51EBEC64C00B00549 /* JHPhotoCollection.m */,
+				0D6710A61EBEC64C00B00549 /* JHPhotoManager.h */,
+				0D6710A71EBEC64C00B00549 /* JHPhotoManager.m */,
+			);
+			path = JHPhotoModel;
 			sourceTree = "<group>";
 		};
 		0D9CFEE51EB6FC3800BB8F3D /* JHPhotoPicker */ = {
@@ -214,14 +227,9 @@
 		0DFFE85D1EB61D51009A5446 /* JHPhoto */ = {
 			isa = PBXGroup;
 			children = (
+				0D6710A11EBEC64C00B00549 /* JHPhotoModel */,
 				0D5107461EB89945005F4FBA /* JHPhotoBrowser */,
 				0D9CFEE51EB6FC3800BB8F3D /* JHPhotoPicker */,
-				0DFFE85E1EB61D51009A5446 /* JHPhotoManager.h */,
-				0DFFE85F1EB61D51009A5446 /* JHPhotoManager.m */,
-				0DFFE8611EB61D73009A5446 /* JHPhotoCollection.h */,
-				0DFFE8621EB61D73009A5446 /* JHPhotoCollection.m */,
-				0DFFE8671EB61ECF009A5446 /* JHPHAsset.h */,
-				0DFFE8681EB61ECF009A5446 /* JHPHAsset.m */,
 				0DFFE86A1EB6357A009A5446 /* JHPhotoHeader.h */,
 			);
 			path = JHPhoto;
@@ -424,17 +432,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DFFE8691EB61ECF009A5446 /* JHPHAsset.m in Sources */,
-				0DFFE8631EB61D73009A5446 /* JHPhotoCollection.m in Sources */,
 				0D9CFEF11EB7550000BB8F3D /* JHPhotoCollectionViewCell.m in Sources */,
 				0DF658D01EBC1C2300CA375A /* JHPhotoBrowserVC.m in Sources */,
 				0DFFE82B1EB61CF7009A5446 /* ViewController.m in Sources */,
 				0DFFE8311EB61CF7009A5446 /* JHPhotoDemo.xcdatamodeld in Sources */,
+				0D6710A91EBEC64C00B00549 /* JHPhotoCollection.m in Sources */,
 				0DF658CF1EBC1C2300CA375A /* JHPhotoBrowserView.m in Sources */,
-				0DFFE8601EB61D51009A5446 /* JHPhotoManager.m in Sources */,
 				0DFFE8281EB61CF7009A5446 /* AppDelegate.m in Sources */,
+				0D6710A81EBEC64C00B00549 /* JHPHAsset.m in Sources */,
 				0DFFE8251EB61CF7009A5446 /* main.m in Sources */,
 				0D67109D1EBEB6F800B00549 /* JHPhotoPickerColloctionVC.m in Sources */,
+				0D6710AA1EBEC64C00B00549 /* JHPhotoManager.m in Sources */,
 				0D6710A01EBEBD6B00B00549 /* JHPhotoAblumCollecitonVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

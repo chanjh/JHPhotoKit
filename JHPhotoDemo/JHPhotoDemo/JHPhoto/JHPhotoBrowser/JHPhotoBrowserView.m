@@ -7,6 +7,8 @@
 //
 
 #import "JHPhotoBrowserView.h"
+#import "JHPHAsset.h"
+#import <PhotosUI/PhotosUI.h>
 typedef NS_ENUM(NSUInteger, JHPhotoBrowserDire) {
     JHPhotoBrowserDireNone,
     JHPhotoBrowserDireUp,
@@ -17,30 +19,66 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserDire) {
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) PHLivePhotoView *livePhotoView;
 @property (nonatomic, assign) JHPhotoBrowserDire dire;
 
 @end
 
-@implementation JHPhotoBrowserView
+@implementation JHPhotoBrowserView{
+    UIImage *_image;
+    JHPHAsset *_asset;
+}
 
-- (void)setImageWithImage:(UIImage *)image{
+- (void)setViewWithAsset:(JHPHAsset *)asset{
+    _asset = asset;
     [self.scrollView removeFromSuperview];
+    [self setupContentView];
+}
+
+- (void)setupContentView{
+    __weak typeof(self)weakSelf = self;
+    [_asset getOriginImageWithBlock:^(UIImage *image) {
+        __weak typeof(weakSelf)strongSelf = weakSelf;
+        _image = image;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [strongSelf setupImageView];
+            if(_asset.assetType == JHPhotoAssetTypePhotoLive){
+                [strongSelf setupLivePhotoView];
+                [strongSelf setupScrollView];
+                [strongSelf.scrollView addSubview:strongSelf.livePhotoView];
+            }else{
+                [strongSelf setupScrollView];
+                [strongSelf.scrollView addSubview:strongSelf.imageView];
+            }
+        });
+    }];
+}
+- (void)setupLivePhotoView{
+    CGFloat imgViewH = _image.size.height/_image.size.width * self.frame.size.width;
+    CGRect frame = CGRectMake(0, 0, self.frame.size.width, imgViewH);
     
-    CGFloat imgViewH = image.size.height/image.size.width * self.frame.size.width;
+    self.livePhotoView = [[PHLivePhotoView alloc]initWithFrame:frame];
+    self.livePhotoView.contentMode = UIViewContentModeScaleAspectFit;
+    JHPHLivePhotoAsset *livePhotoAsset = (JHPHLivePhotoAsset *)_asset;
+    [livePhotoAsset getLivePhotoWithBlock:^(PHLivePhoto *livePhoto) {
+        self.livePhotoView.livePhoto = livePhoto;
+        [self.livePhotoView startPlaybackWithStyle:PHLivePhotoViewPlaybackStyleHint];
+    }];
+}
+- (void)setupImageView{
+    CGFloat imgViewH = _image.size.height/_image.size.width * self.frame.size.width;
     self.imageView = [[UIImageView alloc]init];
     [self.imageView setFrame:CGRectMake(0, 0, self.frame.size.width, imgViewH)];
-    
     if(imgViewH < self.frame.size.height){
         [self.imageView setCenter:CGPointMake(self.frame.size.width/2, self.center.y)];
     }
-    [self.imageView setImage:image];
+    [self.imageView setImage:_image];
     self.imageView.userInteractionEnabled = YES;
-    [self setupScrollView];
 }
 
 - (void)setupScrollView{
     CGRect frame = self.frame;
-    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, frame.origin.y, frame.size.width, frame.size.height)];
+    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, frame.origin.y+64, frame.size.width, frame.size.height)];
     _scrollView.showsVerticalScrollIndicator = FALSE;
     _scrollView.showsHorizontalScrollIndicator = FALSE;
     _scrollView.delegate = self;
@@ -59,7 +97,7 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserDire) {
     _scrollView.maximumZoomScale = 2.0;
     _scrollView.minimumZoomScale = 1.0;
     [_scrollView setContentOffset:CGPointMake(0, 0)];
-    [_scrollView addSubview:_imageView];
+//    [_scrollView addSubview:_imageView];
     [self addSubview:self.scrollView];
 }
 

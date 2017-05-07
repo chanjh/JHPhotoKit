@@ -70,11 +70,10 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     JHPhotoBrowserView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    [self.photoList[indexPath.row] getOriginImageWithBlock:^(UIImage *image) {
-        [cell setImageWithImage:image];
-    }];
-    
-    
+    [cell setViewWithAsset:self.photoList[indexPath.row]];
+//    [self.photoList[indexPath.row] getOriginImageWithBlock:^(UIImage *image) {
+//        [cell setImageWithImage:image];
+//    }];
     return cell;
 }
 /**
