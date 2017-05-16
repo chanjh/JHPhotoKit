@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserGestureType) {
     JHPhotoBrowserGestureTypeCancel,
 };
 
-@interface JHPhotoBrowserVC ()<UIGestureRecognizerDelegate>
+@interface JHPhotoBrowserVC ()<UIGestureRecognizerDelegate, JHPhotoBrowserViewDelegate>
 @property (nonatomic, assign) NSInteger index;
 @property (nonatomic, assign) JHPhotoBrowserGestureType gestureType;
 @end
@@ -63,13 +63,14 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
 }
 
-#pragma mark UICollectionViewDataSource、Delegate
+#pragma mark - UICollectionViewDataSource、Delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.photoList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     JHPhotoBrowserView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    cell.delegate = self;
     [cell setViewWithAsset:self.photoList[indexPath.row]];
     return cell;
 }
@@ -85,72 +86,16 @@ static NSString * const reuseIdentifier = @"Cell";
  * 重新添加手势
  */
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
-    
     // 慢滑手势
     UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc]init];
     recognizer.delegate = self;
-    [recognizer addTarget:self action:@selector(handleGestureRecognizer:)];
+    [recognizer addTarget:cell action:@selector(handleGestureRecognizer:)];
     [cell addGestureRecognizer:recognizer];
-    
-    // 快扫手势
-    UISwipeGestureRecognizer *swipeRecognizer = [[UISwipeGestureRecognizer alloc]init];
-    swipeRecognizer.numberOfTouchesRequired = 1;
-    swipeRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
-    swipeRecognizer.delegate = self;
-    [cell addGestureRecognizer:swipeRecognizer];
-
-}
-# pragma mark - Gesture Handler
-- (void)handleGestureRecognizer:(UIGestureRecognizer *)recognizer{
-    if(recognizer.state == UIGestureRecognizerStateBegan){
-        // 手势一开始移动时，图层的位置
-        _firstFrame = recognizer.view.frame;
-    }
-    if(recognizer.state == UIGestureRecognizerStateChanged){
-        // 图片跟着手势移动
-        UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)recognizer;
-        [recognizer.view setFrame:CGRectMake(_firstFrame.origin.x + [panGestureRecognizer translationInView:self.collectionView].x , _firstFrame.origin.y + [panGestureRecognizer translationInView:self.collectionView].y, _firstFrame.size.width, _firstFrame.size.height)];
-    }
-    if(recognizer.state == UIGestureRecognizerStateEnded){
-        // 结束手势
-        self.gestureType = JHPhotoBrowserGestureTypeNone;
-        [recognizer.view setFrame:_firstFrame];
-        UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)recognizer;
-        [panGestureRecognizer setTranslation:CGPointZero inView:recognizer.view];
-        [self dismissVC];
-    }
 }
 
-- (void)dismissVC{
+# pragma mark - JHPhotoBrowserViewDelegate
+- (void)viewShouldDismiss{
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-# pragma mark - UIGestureDelegate
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
-    if([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]){
-        UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)gestureRecognizer;
-        CGPoint point = [panGestureRecognizer translationInView:gestureRecognizer.view];
-        // 速度
-//        NSLog(@"X :%f",[panGestureRecognizer velocityInView:gestureRecognizer.view].x);
-//        NSLog(@"Y :%f",[panGestureRecognizer velocityInView:gestureRecognizer.view].y);
-        // 位移
-//        NSLog(@"X :%f",[panGestureRecognizer translationInView:gestureRecognizer.view].x);
-//        NSLog(@"Y :%f",[panGestureRecognizer translationInView:gestureRecognizer.view].y);
-        if(fabs(point.y) >= fabs(point.x) && self.gestureType == JHPhotoBrowserGestureTypeNone){
-            // 用于移动图片图层
-            self.gestureType = JHPhotoBrowserGestureTypeCancel;
-            return YES;
-        }else if(fabs(point.y) < fabs(point.x) && self.gestureType == JHPhotoBrowserGestureTypeNone){
-            // 滚动图片背后的 collectionView 图层
-            self.gestureType = JHPhotoBrowserGestureTypeNone;
-            UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)gestureRecognizer;
-            [panGestureRecognizer setTranslation:CGPointZero inView:gestureRecognizer.view];
-            return NO;
-        }
-    }else{
-        // 快扫手势
-    }
-    return YES;
 }
 
 @end

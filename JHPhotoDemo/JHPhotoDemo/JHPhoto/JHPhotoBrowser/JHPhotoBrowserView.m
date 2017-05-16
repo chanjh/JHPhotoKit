@@ -14,6 +14,11 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserDire) {
     JHPhotoBrowserDireUp,
     JHPhotoBrowserDireDown,
 };
+typedef NS_ENUM(NSUInteger, JHPhotoBrowserGestureType) {
+    JHPhotoBrowserGestureTypeNone,
+    JHPhotoBrowserGestureTypeScroll,
+    JHPhotoBrowserGestureTypeCancel,
+};
 
 @interface JHPhotoBrowserView()<UIScrollViewDelegate>
 
@@ -21,12 +26,14 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserDire) {
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) PHLivePhotoView *livePhotoView;
 @property (nonatomic, assign) JHPhotoBrowserDire dire;
+@property (nonatomic, assign) JHPhotoBrowserGestureType gestureType;
 
 @end
 
 @implementation JHPhotoBrowserView{
     UIImage *_image;
     JHPHAsset *_asset;
+    CGRect _firstFrame;             // 手势启动时，图层的位置
 }
 
 - (void)setViewWithAsset:(JHPHAsset *)asset{
@@ -100,6 +107,58 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserDire) {
     _scrollView.minimumZoomScale = 1.0;
     [_scrollView setContentOffset:CGPointMake(0, 0)];
     [self addSubview:self.scrollView];
+}
+
+# pragma mark - Gesture Handler
+- (void)handleGestureRecognizer:(UIGestureRecognizer *)recognizer{
+    if(recognizer.state == UIGestureRecognizerStateBegan){
+        // 手势一开始移动时，图层的位置
+        _firstFrame = recognizer.view.frame;
+    }
+    if(recognizer.state == UIGestureRecognizerStateChanged){
+        // 图片跟着手势移动
+        UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)recognizer;
+        [recognizer.view setFrame:CGRectMake(_firstFrame.origin.x + [panGestureRecognizer translationInView:self].x , _firstFrame.origin.y + [panGestureRecognizer translationInView:self].y, _firstFrame.size.width, _firstFrame.size.height)];
+    }
+    if(recognizer.state == UIGestureRecognizerStateEnded){
+        // 结束手势
+        self.gestureType = JHPhotoBrowserGestureTypeNone;
+        [recognizer.view setFrame:_firstFrame];
+        UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)recognizer;
+        [panGestureRecognizer setTranslation:CGPointZero inView:recognizer.view];
+        if([self.delegate respondsToSelector:@selector(viewShouldDismiss)]){
+            [self.delegate viewShouldDismiss];
+        }
+        
+    }
+}
+
+# pragma mark - UIGestureDelegate
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    if([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]){
+        UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)gestureRecognizer;
+        CGPoint point = [panGestureRecognizer translationInView:gestureRecognizer.view];
+        // 速度
+        //        NSLog(@"X :%f",[panGestureRecognizer velocityInView:gestureRecognizer.view].x);
+        //        NSLog(@"Y :%f",[panGestureRecognizer velocityInView:gestureRecognizer.view].y);
+        // 位移
+        //        NSLog(@"X :%f",[panGestureRecognizer translationInView:gestureRecognizer.view].x);
+        //        NSLog(@"Y :%f",[panGestureRecognizer translationInView:gestureRecognizer.view].y);
+        if(fabs(point.y) >= fabs(point.x) && self.gestureType == JHPhotoBrowserGestureTypeNone){
+            // 用于移动图片图层
+            self.gestureType = JHPhotoBrowserGestureTypeCancel;
+            return YES;
+        }else if(fabs(point.y) < fabs(point.x) && self.gestureType == JHPhotoBrowserGestureTypeNone){
+            // 滚动图片背后的 collectionView 图层
+            self.gestureType = JHPhotoBrowserGestureTypeNone;
+            UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)gestureRecognizer;
+            [panGestureRecognizer setTranslation:CGPointZero inView:gestureRecognizer.view];
+            return NO;
+        }
+    }else{
+        // 快扫手势
+    }
+    return YES;
 }
 
 # pragma mark - UIScrollViewDelegate
