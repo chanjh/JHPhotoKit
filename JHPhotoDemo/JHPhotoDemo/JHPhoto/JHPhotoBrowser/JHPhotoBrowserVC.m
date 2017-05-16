@@ -71,16 +71,12 @@ static NSString * const reuseIdentifier = @"Cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     JHPhotoBrowserView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     [cell setViewWithAsset:self.photoList[indexPath.row]];
-//    [self.photoList[indexPath.row] getOriginImageWithBlock:^(UIImage *image) {
-//        [cell setImageWithImage:image];
-//    }];
     return cell;
 }
 /**
  * 移除 cell 的所有手势
  */
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
-    
     for (UIGestureRecognizer *gestureRecognizer in cell.gestureRecognizers){
         [cell removeGestureRecognizer:gestureRecognizer];
     }

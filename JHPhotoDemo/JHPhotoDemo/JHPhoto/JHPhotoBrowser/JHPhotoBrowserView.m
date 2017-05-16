@@ -56,9 +56,11 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserDire) {
 - (void)setupLivePhotoView{
     CGFloat imgViewH = _image.size.height/_image.size.width * self.frame.size.width;
     CGRect frame = CGRectMake(0, 0, self.frame.size.width, imgViewH);
-    
     self.livePhotoView = [[PHLivePhotoView alloc]initWithFrame:frame];
     self.livePhotoView.contentMode = UIViewContentModeScaleAspectFit;
+    if(imgViewH < self.frame.size.height){
+        [self.livePhotoView setCenter:CGPointMake(self.frame.size.width/2, self.center.y)];
+    }
     JHPHLivePhotoAsset *livePhotoAsset = (JHPHLivePhotoAsset *)_asset;
     [livePhotoAsset getLivePhotoWithBlock:^(PHLivePhoto *livePhoto) {
         self.livePhotoView.livePhoto = livePhoto;
@@ -97,7 +99,6 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserDire) {
     _scrollView.maximumZoomScale = 2.0;
     _scrollView.minimumZoomScale = 1.0;
     [_scrollView setContentOffset:CGPointMake(0, 0)];
-//    [_scrollView addSubview:_imageView];
     [self addSubview:self.scrollView];
 }
 
