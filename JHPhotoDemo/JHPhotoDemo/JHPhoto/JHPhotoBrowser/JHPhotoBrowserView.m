@@ -10,24 +10,12 @@
 #import "JHPHAsset.h"
 #import <PhotosUI/PhotosUI.h>
 #import "UIImage+animatedGIF.h"
-typedef NS_ENUM(NSUInteger, JHPhotoBrowserDire) {
-    JHPhotoBrowserDireNone,
-    JHPhotoBrowserDireUp,
-    JHPhotoBrowserDireDown,
-};
-typedef NS_ENUM(NSUInteger, JHPhotoBrowserGestureType) {
-    JHPhotoBrowserGestureTypeNone,
-    JHPhotoBrowserGestureTypeScroll,
-    JHPhotoBrowserGestureTypeCancel,
-};
 
 @interface JHPhotoBrowserView()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) PHLivePhotoView *livePhotoView;
-@property (nonatomic, assign) JHPhotoBrowserDire dire;
-@property (nonatomic, assign) JHPhotoBrowserGestureType gestureType;
 
 @end
 
@@ -156,7 +144,6 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserGestureType) {
     }
     if(recognizer.state == UIGestureRecognizerStateEnded){
         // 结束手势
-        self.gestureType = JHPhotoBrowserGestureTypeNone;
         [recognizer.view setFrame:_firstFrame];
         UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)recognizer;
         [panGestureRecognizer setTranslation:CGPointZero inView:recognizer.view];
@@ -178,19 +165,18 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserGestureType) {
         // 位移
 //        NSLog(@"X :%f",[panGestureRecognizer translationInView:gestureRecognizer.view].x);
 //        NSLog(@"Y :%f",[panGestureRecognizer translationInView:gestureRecognizer.view].y);
-        if(fabs(point.y) >= fabs(point.x) && self.gestureType == JHPhotoBrowserGestureTypeNone){
+        if(fabs(point.y)>= fabs(point.x))
+        {
             // 用于移动图片图层
-            self.gestureType = JHPhotoBrowserGestureTypeCancel;
             return YES;
-        }else if(fabs(point.y) < fabs(point.x) && self.gestureType == JHPhotoBrowserGestureTypeNone){
+        }
+        else
+        {
             // 滚动图片背后的 collectionView 图层
-            self.gestureType = JHPhotoBrowserGestureTypeNone;
             UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)gestureRecognizer;
             [panGestureRecognizer setTranslation:CGPointZero inView:gestureRecognizer.view];
             return NO;
         }
-    }else{
-        // 快扫手势
     }
     return YES;
 }

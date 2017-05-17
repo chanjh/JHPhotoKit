@@ -86,7 +86,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
     // 慢滑手势
     UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc]init];
-    recognizer.delegate = self;
+    recognizer.delegate = cell;
     [recognizer addTarget:cell action:@selector(handleGestureRecognizer:)];
     [cell addGestureRecognizer:recognizer];
 }

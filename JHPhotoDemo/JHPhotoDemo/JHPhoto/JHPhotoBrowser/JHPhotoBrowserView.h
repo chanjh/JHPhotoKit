@@ -20,7 +20,7 @@
 /**
  * 图片浏览器中的 cell
  */
-@interface JHPhotoBrowserView : UICollectionViewCell
+@interface JHPhotoBrowserView : UICollectionViewCell <UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) id<JHPhotoBrowserViewDelegate> delegate;
 - (void)setViewWithAsset:(JHPHAsset *)asset;
