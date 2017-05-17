@@ -18,6 +18,6 @@
 ## Todo List
 
 - [x] 强化 demo 中的 viewController
-- [ ] 支持 gif, 视频和 live photo
+- [x] 支持 gif、 live photo
 - [ ] 查看图片更多信息
 
