@@ -9,6 +9,7 @@
 #import "JHPhotoBrowserView.h"
 #import "JHPHAsset.h"
 #import <PhotosUI/PhotosUI.h>
+#import "UIImage+animatedGIF.h"
 typedef NS_ENUM(NSUInteger, JHPhotoBrowserDire) {
     JHPhotoBrowserDireNone,
     JHPhotoBrowserDireUp,
@@ -42,6 +43,7 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserGestureType) {
     [self setupContentView];
 }
 
+# pragma mark - 设置 UI
 - (void)setupContentView{
     __weak typeof(self)weakSelf = self;
     [_asset getOriginImageWithBlock:^(UIImage *image) {
@@ -49,17 +51,29 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserGestureType) {
         _image = image;
         dispatch_async(dispatch_get_main_queue(), ^{
             [strongSelf setupImageView];
-            if(_asset.assetType == JHPhotoAssetTypePhotoLive){
+            if(_asset.assetType == JHPhotoAssetTypePhotoLive)
+            {
                 [strongSelf setupLivePhotoView];
                 [strongSelf setupScrollView];
                 [strongSelf.scrollView addSubview:strongSelf.livePhotoView];
-            }else{
+            }
+            else if (_asset.assetType == JHPhotoAssetTypeGif){
+                [strongSelf setupGIFImageView];
+                [strongSelf setupScrollView];
+                [strongSelf.scrollView addSubview:strongSelf.imageView];
+            }
+            else
+            {
                 [strongSelf setupScrollView];
                 [strongSelf.scrollView addSubview:strongSelf.imageView];
             }
         });
     }];
 }
+
+/**
+ *  根据不同的 Asset 类型布局缩略图
+ */
 - (void)setupLivePhotoView{
     CGFloat imgViewH = _image.size.height/_image.size.width * self.frame.size.width;
     CGRect frame = CGRectMake(0, 0, self.frame.size.width, imgViewH);
@@ -68,12 +82,30 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserGestureType) {
     if(imgViewH < self.frame.size.height){
         [self.livePhotoView setCenter:CGPointMake(self.frame.size.width/2, self.center.y)];
     }
+    __weak typeof(self)weakSelf = self;
     JHPHLivePhotoAsset *livePhotoAsset = (JHPHLivePhotoAsset *)_asset;
     [livePhotoAsset getLivePhotoWithBlock:^(PHLivePhoto *livePhoto) {
-        self.livePhotoView.livePhoto = livePhoto;
-        [self.livePhotoView startPlaybackWithStyle:PHLivePhotoViewPlaybackStyleHint];
+        __weak typeof(weakSelf)strongSelf = weakSelf;
+        strongSelf.livePhotoView.livePhoto = livePhoto;
+        [strongSelf.livePhotoView startPlaybackWithStyle:PHLivePhotoViewPlaybackStyleHint];
     }];
 }
+
+- (void)setupGIFImageView{
+    CGFloat imgViewH = _image.size.height/_image.size.width * self.frame.size.width;
+    self.imageView = [[UIImageView alloc]init];
+    [self.imageView setFrame:CGRectMake(0, 0, self.frame.size.width, imgViewH)];
+    if(imgViewH < self.frame.size.height){
+        [self.imageView setCenter:CGPointMake(self.frame.size.width/2, self.center.y)];
+    }
+    __weak typeof(self)weakSelf = self;
+    JHPHGifAsset *gifAsset = (JHPHGifAsset *)_asset;
+    [gifAsset getGIFDataWithBlock:^(NSData *gifData) {
+        __weak typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf.imageView setImage:[UIImage animatedImageWithAnimatedGIFData:gifData]];
+    }];
+}
+
 - (void)setupImageView{
     CGFloat imgViewH = _image.size.height/_image.size.width * self.frame.size.width;
     self.imageView = [[UIImageView alloc]init];
@@ -84,7 +116,9 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserGestureType) {
     [self.imageView setImage:_image];
     self.imageView.userInteractionEnabled = YES;
 }
-
+/**
+ * 设置 scrollView
+ */
 - (void)setupScrollView{
     CGRect frame = self.frame;
     _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, frame.origin.y+64, frame.size.width, frame.size.height)];
@@ -133,17 +167,17 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserGestureType) {
     }
 }
 
-# pragma mark - UIGestureDelegate
+# pragma mark - UIGestur eDelegate
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
     if([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]){
         UIPanGestureRecognizer *panGestureRecognizer = (UIPanGestureRecognizer *)gestureRecognizer;
         CGPoint point = [panGestureRecognizer translationInView:gestureRecognizer.view];
         // 速度
-        //        NSLog(@"X :%f",[panGestureRecognizer velocityInView:gestureRecognizer.view].x);
-        //        NSLog(@"Y :%f",[panGestureRecognizer velocityInView:gestureRecognizer.view].y);
+//        NSLog(@"X :%f",[panGestureRecognizer velocityInView:gestureRecognizer.view].x);
+//        NSLog(@"Y :%f",[panGestureRecognizer velocityInView:gestureRecognizer.view].y);
         // 位移
-        //        NSLog(@"X :%f",[panGestureRecognizer translationInView:gestureRecognizer.view].x);
-        //        NSLog(@"Y :%f",[panGestureRecognizer translationInView:gestureRecognizer.view].y);
+//        NSLog(@"X :%f",[panGestureRecognizer translationInView:gestureRecognizer.view].x);
+//        NSLog(@"Y :%f",[panGestureRecognizer translationInView:gestureRecognizer.view].y);
         if(fabs(point.y) >= fabs(point.x) && self.gestureType == JHPhotoBrowserGestureTypeNone){
             // 用于移动图片图层
             self.gestureType = JHPhotoBrowserGestureTypeCancel;

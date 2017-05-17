@@ -20,9 +20,7 @@ typedef NS_ENUM(NSUInteger, JHPhotoBrowserGestureType) {
 @property (nonatomic, assign) JHPhotoBrowserGestureType gestureType;
 @end
 
-@implementation JHPhotoBrowserVC{
-    CGRect _firstFrame;             // 手势启动时，图层的位置
-}
+@implementation JHPhotoBrowserVC
 
 # pragma mark - 初始化
 static NSString * const reuseIdentifier = @"Cell";

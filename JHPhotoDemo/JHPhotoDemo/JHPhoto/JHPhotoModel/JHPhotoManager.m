@@ -98,7 +98,8 @@
         JHPHAsset *asset;
         if(phAsset.mediaSubtypes == PHAssetMediaSubtypePhotoLive){
             asset = [JHPHLivePhotoAsset assetWithPHAsset:phAsset];
-        }else if([[phAsset valueForKey:@"filename"] containsString:@".GIF"]){
+        }
+        else if([[phAsset valueForKey:@"filename"] containsString:@".GIF"]){
             asset = [JHPHGifAsset assetWithPHAsset:phAsset];
             // 此处使用了私有的 API， 不保证能上架
             
@@ -109,7 +110,8 @@
             
             // 非私有的方法：[imageManager requestImageDataForAsset:asset]
             // 判断 dataUTI isEqualToString:(__bridge NSString *)kUTTypeGIF
-        }else{
+        }
+        else{
             asset = [JHPHAsset assetWithPHAsset:phAsset];
         }
         [array addObject:asset];

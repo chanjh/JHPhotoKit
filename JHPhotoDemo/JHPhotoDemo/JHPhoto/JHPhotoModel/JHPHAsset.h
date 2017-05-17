@@ -18,12 +18,13 @@ typedef NS_ENUM(NSUInteger, JHPhotoAssetType) {
     JHPhotoAssetTypePhotoLive          = (1UL << 3),
     JHPhotoAssetTypePhotoDepthEffect   = (1UL << 4),
     
+    JHPhotoAssetTypeGif                = (1UL << 10),
+    
     // Video types
     JHPhotoAssetTypeVideoStreamed      = (1UL << 16),
     JHPhotoAssetTypeVideoHighFrameRate = (1UL << 17),
     JHPhotoAssetTypeVideoTimelapse     = (1UL << 18),
-    
-    JHPhotoAssetTypeGif                = (1UL << 30),
+
 //    JHPhotoAssetType                = (1UL << 31),
 };
 
@@ -64,7 +65,7 @@ typedef NS_ENUM(NSUInteger, JHPhotoAssetType) {
 
 # pragma mark - Gif 图
 @interface JHPHGifAsset : JHPHAsset
-
+- (void)getGIFDataWithBlock:(void(^)(NSData *gifData))block;
 @end
 
 # pragma mark - Live Photo

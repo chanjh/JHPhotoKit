@@ -68,6 +68,16 @@
     return gifAsset;
 }
 
+- (void)getGIFDataWithBlock:(void(^)(NSData *gifData))block{
+    PHImageRequestOptions *requestOptions = [[PHImageRequestOptions alloc] init];
+    requestOptions.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+    [[PHImageManager defaultManager] requestImageDataForAsset:self.asset options:requestOptions resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+        if(block){
+            block(imageData);
+        }
+    }];
+}
+
 @end
 
 # pragma mark - Live Photo
@@ -88,7 +98,6 @@
     return lpAsset;
 }
 - (void)getLivePhotoWithBlock:(void(^)(PHLivePhoto *livePhoto))block{
-    
     CGSize targetSize = [UIScreen mainScreen].bounds.size;
     PHLivePhotoRequestOptions *requestOptions = [[PHLivePhotoRequestOptions alloc] init];
     requestOptions.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;

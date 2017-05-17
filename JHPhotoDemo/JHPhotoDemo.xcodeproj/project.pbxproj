@@ -14,6 +14,7 @@
 		0D6710AA1EBEC64C00B00549 /* JHPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6710A71EBEC64C00B00549 /* JHPhotoManager.m */; };
 		0D9CFEF11EB7550000BB8F3D /* JHPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CFEEF1EB7550000BB8F3D /* JHPhotoCollectionViewCell.m */; };
 		0D9CFEF21EB7550000BB8F3D /* JHPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D9CFEF01EB7550000BB8F3D /* JHPhotoCollectionViewCell.xib */; };
+		0DB1AA581ECBE01600112816 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB1AA571ECBE01500112816 /* UIImage+animatedGIF.m */; };
 		0DF658CF1EBC1C2300CA375A /* JHPhotoBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF658CC1EBC1C2300CA375A /* JHPhotoBrowserView.m */; };
 		0DF658D01EBC1C2300CA375A /* JHPhotoBrowserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF658CE1EBC1C2300CA375A /* JHPhotoBrowserVC.m */; };
 		0DFFE8251EB61CF7009A5446 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFE8241EB61CF7009A5446 /* main.m */; };
@@ -59,6 +60,8 @@
 		0D9CFEEE1EB7550000BB8F3D /* JHPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoCollectionViewCell.h; sourceTree = "<group>"; };
 		0D9CFEEF1EB7550000BB8F3D /* JHPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		0D9CFEF01EB7550000BB8F3D /* JHPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JHPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		0DB1AA561ECBE01500112816 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		0DB1AA571ECBE01500112816 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		0DF658CB1EBC1C2300CA375A /* JHPhotoBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoBrowserView.h; sourceTree = "<group>"; };
 		0DF658CC1EBC1C2300CA375A /* JHPhotoBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPhotoBrowserView.m; sourceTree = "<group>"; };
 		0DF658CD1EBC1C2300CA375A /* JHPhotoBrowserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPhotoBrowserVC.h; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 		0D5107461EB89945005F4FBA /* JHPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				0DB1AA561ECBE01500112816 /* UIImage+animatedGIF.h */,
+				0DB1AA571ECBE01500112816 /* UIImage+animatedGIF.m */,
 				0DF658CB1EBC1C2300CA375A /* JHPhotoBrowserView.h */,
 				0DF658CC1EBC1C2300CA375A /* JHPhotoBrowserView.m */,
 				0DF658CD1EBC1C2300CA375A /* JHPhotoBrowserVC.h */,
@@ -432,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DB1AA581ECBE01600112816 /* UIImage+animatedGIF.m in Sources */,
 				0D9CFEF11EB7550000BB8F3D /* JHPhotoCollectionViewCell.m in Sources */,
 				0DF658D01EBC1C2300CA375A /* JHPhotoBrowserVC.m in Sources */,
 				0DFFE82B1EB61CF7009A5446 /* ViewController.m in Sources */,
